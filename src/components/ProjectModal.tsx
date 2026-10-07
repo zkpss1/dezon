@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { X, Send } from 'lucide-react';
+import { X } from 'lucide-react';
 import { Project } from '../data/projectsData';
+import { WHATSAPP_URL } from '../data/contact';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -49,9 +51,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         <div className="px-5 py-4 bg-[#FAF8F4] border-t border-[#E6DED5] flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[11px] text-[#6F6962] text-center sm:text-left">Cada projeto é desenvolvido para as medidas do seu ambiente.</p>
-          <a href={`https://wa.me/5522998820120?text=${message}`} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 text-xs font-medium text-white bg-[#956440] hover:bg-[#7F5334] rounded flex items-center justify-center gap-2 shadow-xs">
-            <Send className="w-3.5 h-3.5" />
-            <span>Conversar sobre meu projeto</span>
+          <a href={`${WHATSAPP_URL}?text=${message}`} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 text-xs font-medium text-white bg-[#956440] hover:bg-[#7F5334] rounded flex items-center justify-center gap-2 shadow-xs">
+            <WhatsAppIcon className="w-4 h-4" />
+            <span>Conversar pelo WhatsApp</span>
           </a>
         </div>
       </div>

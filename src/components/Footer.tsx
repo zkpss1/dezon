@@ -1,5 +1,7 @@
 import React from 'react';
-import { Instagram, Phone, MapPin, Clock } from 'lucide-react';
+import { Instagram, MapPin, Clock } from 'lucide-react';
+import { WHATSAPP_DISPLAY, WHATSAPP_URL } from '../data/contact';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface FooterProps {
   onOpenSimulator: () => void;
@@ -32,14 +34,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenSimulator }) => {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://wa.me/5522998820120"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-[#34312E] hover:bg-[#956440] text-white transition-colors"
-                title="WhatsApp (22) 99882-0120"
+                title={`WhatsApp ${WHATSAPP_DISPLAY}`}
                 aria-label="WhatsApp"
               >
-                <Phone className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -47,9 +49,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenSimulator }) => {
           {/* Ambientes Links (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
             <p className="text-xs font-semibold uppercase tracking-wider text-[#BC8A63] font-sans-clean">
-              Ambientes
+              Navegação
             </p>
             <ul className="space-y-2 text-xs text-[#FAF8F4]/70">
+              <li><a href="#/" onClick={() => window.scrollTo(0, 0)} className="hover:text-white transition-colors">Início</a></li>
               <li><a href="#/projetos/cozinhas" className="hover:text-white transition-colors">Cozinhas planejadas</a></li>
               <li><a href="#/projetos/salas" className="hover:text-white transition-colors">Salas</a></li>
               <li><a href="#/projetos/dormitorios" className="hover:text-white transition-colors">Quartos e closets</a></li>

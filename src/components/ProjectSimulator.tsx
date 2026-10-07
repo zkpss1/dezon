@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { X, Check, Send, Sparkles, MapPin } from 'lucide-react';
+import { WHATSAPP_URL } from '../data/contact';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface ProjectSimulatorProps {
   isOpen: boolean;
@@ -92,7 +94,7 @@ export const ProjectSimulator: React.FC<ProjectSimulatorProps> = ({ isOpen, onCl
   const handleSendWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
     const encodedMessage = getFormattedWhatsAppMessage();
-    const whatsappUrl = `https://wa.me/5522998820120?text=${encodedMessage}`;
+    const whatsappUrl = `${WHATSAPP_URL}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     setSubmitted(true);
   };
@@ -133,12 +135,12 @@ export const ProjectSimulator: React.FC<ProjectSimulatorProps> = ({ isOpen, onCl
               </p>
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
-                  href={`https://wa.me/5522998820120?text=${getFormattedWhatsAppMessage()}`}
+                  href={`${WHATSAPP_URL}?text=${getFormattedWhatsAppMessage()}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-2.5 text-xs font-medium text-white bg-[#587158] hover:bg-[#475d47] rounded flex items-center gap-2"
                 >
-                  <Send className="w-3.5 h-3.5" />
+                  <WhatsAppIcon className="w-4 h-4" />
                   <span>Abrir Conversa no WhatsApp</span>
                 </a>
                 <button
@@ -314,7 +316,7 @@ export const ProjectSimulator: React.FC<ProjectSimulatorProps> = ({ isOpen, onCl
                     type="tel"
                     aria-label="Número de WhatsApp"
                     required
-                    placeholder="WhatsApp (ex: 22 99882-0120)"
+                    placeholder="WhatsApp (ex.: 22 99999-9999)"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="h-10 px-3.5 rounded-lg border border-[#E6DED5] bg-white text-xs text-[#1D1C1A] focus:outline-none focus:border-[#A8754D]"
@@ -339,7 +341,7 @@ export const ProjectSimulator: React.FC<ProjectSimulatorProps> = ({ isOpen, onCl
                   type="submit"
                   className="w-full sm:w-auto px-6 py-2.5 text-xs font-medium text-white bg-[#956440] hover:bg-[#7F5334] active:bg-[#7F5334] rounded flex items-center justify-center gap-2 cursor-pointer shadow-xs transition-colors"
                 >
-                  <Send className="w-3.5 h-3.5" />
+                  <WhatsAppIcon className="w-4 h-4" />
                   <span>Enviar Solicitação pelo WhatsApp</span>
                 </button>
               </div>

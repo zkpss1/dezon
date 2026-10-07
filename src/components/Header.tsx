@@ -32,7 +32,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#1F2524]/95 text-white backdrop-blur-md">
+    <header className="relative z-40 border-b border-white/10 bg-[#1F2524] text-white">
       {/* Main Header Row (Strict 3-zone contract) */}
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
         {/* Zone 1: Brand Wordmark */}
@@ -86,10 +86,21 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Category Sub-navigation Strip (matching reference image) */}
+      {/* Category Sub-navigation Strip */}
       <div className="border-t border-white/10 bg-[#1A201F]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-2 overflow-x-auto py-2.5 scrollbar-none text-[11px] font-sans-clean">
+            <a
+              href="#/"
+              aria-current={activeSection === 'inicio' ? 'page' : undefined}
+              onClick={() => { if (activeSection === 'inicio') window.scrollTo(0, 0); }}
+              className={`flex min-h-11 items-center whitespace-nowrap rounded px-3 py-1 transition-colors ${activeSection === 'inicio'
+                ? 'bg-[#D0AA7B] font-semibold text-[#202321]'
+                : 'text-[#D8D9D4] hover:bg-white/10 hover:text-white'
+              }`}
+            >
+              Início
+            </a>
             {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat.id;
               return (

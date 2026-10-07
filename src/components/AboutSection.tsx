@@ -1,5 +1,7 @@
 import React from 'react';
 import { MapPin, Phone, Instagram } from 'lucide-react';
+import { WHATSAPP_DISPLAY, WHATSAPP_URL } from '../data/contact';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface AboutSectionProps {
   onOpenSimulator: () => void;
@@ -96,7 +98,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenSimulator }) =
                 <Phone className="w-4 h-4 text-[#956440] shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-[#1D1C1A]">WhatsApp</p>
-                  <p>(22) 99882-0120</p>
+                  <p>{WHATSAPP_DISPLAY}</p>
                 </div>
               </div>
 
@@ -111,11 +113,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenSimulator }) =
 
             <div className="pt-2">
               <a
-                href="https://wa.me/5522998820120?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto%20de%20m%C3%B3veis%20planejados."
+                href={`${WHATSAPP_URL}?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20um%20projeto%20de%20m%C3%B3veis%20planejados.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-2.5 text-xs font-medium text-white bg-[#956440] hover:bg-[#7F5334] rounded flex items-center justify-center gap-2 transition-colors"
               >
+                <WhatsAppIcon className="h-4 w-4" />
                 <span>Conversar pelo WhatsApp</span>
               </a>
             </div>
